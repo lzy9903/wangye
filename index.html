@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/echarts.min.js"></script>
+    <script src="JS/purple-passion.js"></script>
+    <script src="JS/wonderland.js"></script>
+</head>
+<body><div><img scr="JS/1.jpg" id="background"/></div>
+  <div id="main4" style="width: 1550px;height:400px;position: absolute;top:10px"></div>
+    <div id="main" style="width: 1050px;height:400px;position: absolute;left: 460px;top:500px"></div>
+    <div id="main1" style="width: 400px;height:400px;position: absolute;left: 10px;top:500px"></div>
+    <div id="main2" style="width: 1500px;height:400px;position: absolute;left: 10px;top:920px"></div>
+    <div id="main3" style="width: 1500px;height:400px;position: absolute;left: 10px;top:1350px"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'),'purple-passion');
+      var myChart1 = echarts.init(document.getElementById('main1'),'purple-passion');
+      var myChart2 = echarts.init(document.getElementById('main2'),'purple-passion');
+      var myChart3 = echarts.init(document.getElementById('main3'),'purple-passion');
+      var myChart4 = echarts.init(document.getElementById('main4'),'purple-passion');
+var option = {
+ 
+  toolbox: {
+    show: true,
+    feature: {
+      dataZoom: {
+        yAxisIndex: "none"
+      },
+      dataView: {
+        readOnly: false
+      },
+      magicType: {
+        type: ["line", "bar","pie"]
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  tooltip: {},
+  legend: {
+    data: ['百分比'],
+    top:"8%",},
+ grid:{
+  left:100,
+  top:100,
+
+ },
+  xAxis: {
+    data: ['买房', '买车', '出国', '定居大城市', '生一个孩子', '生二个孩子及以上']
+  },
+  yAxis: {},
+  series: [
+    {
+      name: '百分比',
+      type: 'bar',
+      data: [69.84, 69.45, 65.23, 58.02, 22.96, 10.57],
+      
+      label:{
+
+          show:true,
+          color:'white',
+          fontSize:30,
+      },
+      markLine:{
+        data:[{ type: 'average'}]
+      },
+      emphasis: {
+        focus: 'series',
+    blurScope: 'coordinateSystem',
+    itemStyle:{ color: "rgba(248, 243, 155, 1)"}
+      }
+
+    }
+  ]
+};
+var option1 = {
+  
+  title: {
+    text: '00后人生规划',
+    top:50,
+    subtext:'在00后的生涯规划中，大城市定居、买房、买车依然是主流，\n共享经济理念的影响并不明显。这些选择，在当下成人社会\n是焦虑的主因，每天遨游在海量资讯中的00后便也早早染上\n了成人世界的焦虑。调研中，00后提前规划养老的意愿远远\n大于落户、结婚、生子，也是一种对现实焦虑的投射。',
+    subtextStyle:{align: 'center',
+    lineHeight: 30},
+    padding: [20, 20, 200, 20]
+  },
+ 
+
+    }
+var option2 = {
+  color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+  title: {
+    text: '以下产品你更倾向如何选择'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
+    }
+  },
+  legend: {
+    data: ['零食', '鞋', '数码', '护肤', '彩妆']
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+      data: ['国产', '国外产品', '无所谓']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      name: '零食',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(1, 191, 236)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [277, 68, 714]
+    },
+    {
+      name: '鞋',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(0, 221, 255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(77, 119, 255)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [152, 296, 550]
+    },
+    {
+      name: '数码',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(55, 162, 255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(116, 21, 219)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [124, 444, 430]
+    },
+    {
+      name: '护肤',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 0, 135)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(135, 0, 157)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [100, 407, 489]
+    },
+    {
+      name: '彩妆',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      label: {
+        show: true,
+        position: 'top'
+      },
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 191, 0)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(224, 62, 76)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [71, 326, 602]
+    }
+  ]
+}
+var option3 = {
+  title: {
+    text: '#优渥的不止物质，更是资源',
+    top:50,
+    subtext:'调研中，受访00后近3年来家庭平均年收入在15万元以上的达52.92%。\n于受访00后个人而言，58.79%的受访者过去一年月平均可支配收入\n1000元至3000元，25.74%的受访者超过3000元，全年总计已高于\n2021年全国居民人均可支配收入中位数的29975元。9.51%的00后\n已经拥有了自己的奢侈品，以服装、包、香水品类居多。',
+    
+    subtextStyle:{align: 'center',
+    overflow: "breakAll",
+    lineHeight: 30},
+    padding: [20, 20, 200, 20]
+  },
+  dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'slider',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'slider',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        },
+        {
+      type: 'inside',
+      xAxisIndex: [0],
+      start: 1,
+      end: 35
+    },
+    {
+      type: 'inside',
+      yAxisIndex: [0],
+      start: 29,
+      end: 36
+    }
+    ],
+  grid:{left:"30%"},
+  legend: {},
+  xAxis: {},
+  yAxis: {
+    scale: true
+  },
+  series: [
+    {
+      name: '收入',
+      type: 'effectScatter',
+      data: [
+        [8000, 2.31, 100968690],
+        [25000, 6.44, 276624400],
+        [65000, 16.14, 615460577],
+        [135000, 22.19, 1110582082],
+        [205000, 24.40, 1164986705],
+        [950000, 22.09, 1110582082],
+        [2230000, 4.80, 200968690],
+        [6666666, 1.63, 10968690],
+       
+      ],
+      symbolSize: function (data) {
+        return Math.sqrt(data[2]) / 5e2;
+      }
+    }
+  ]
+};
+    // 使用刚指定的配置项和数据显示图表。
+var option4 = {
+  
+  graphic:{
+    type: 'image', // 水平定位到中间
+    // 定位到距离下边界 10% 处
+    style: {
+        image: 'JS/2.png',
+        }
+  },
+ 
+
+    }
+    myChart.setOption(option);
+myChart1.setOption(option1);
+myChart2.setOption(option2);
+myChart3.setOption(option3);
+myChart4.setOption(option4);
+    </script>
+</body>
+</html>
